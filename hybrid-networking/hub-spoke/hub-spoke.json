@@ -45,35 +45,11 @@
                 },
                 {
                     "type": "VirtualMachine",
-                    "settings": [
                         {
                             "resourceGroupName": "onprem-jb-rg",
                             "vmCount": 1,
-                            "namePrefix": "jb",
-                            "size": "Standard_DS1_v2",
-                            "adminUsername": "[replace-with-username]",
-                            "adminPassword": "[replace-with-password]",
-                            "osType": "windows",
-                            "virtualNetwork": {
-                                "resourceGroupName": "onprem-vnet-rg",
-                                "name": "onprem-vnet"
-                            },
-                            "nics": [
-                                {
-                                    "subnetName": "mgmt",
-                                    "publicIpAddress": {
-                                        "sku": "Basic"
-                                    },
-                                    "privateIPAllocationMethod": "Static",
-                                    "startingIPAddress": "192.168.1.132"
-                                }
-                            ]
-                        },
-                        {
-                            "resourceGroupName": "onprem-jb-rg",
-                            "vmCount": 1,
-                            "namePrefix": "jbl",
-                            "size": "Standard_DS1_v2",
+                            "namePrefix": "onprem-vm01",
+                            "size": "Standard_B1ls",
                             "adminUsername": "[replace-with-username]",
                             "adminPassword": "[replace-with-password]",
                             "osType": "linux",
@@ -95,28 +71,9 @@
                         {
                             "resourceGroupName": "hub-vnet-rg",
                             "vmCount": 1,
-                            "namePrefix": "hubjb",
-                            "computerNamePrefix": "hubjb",
-                            "adminUsername": "[replace-with-username]",
-                            "adminPassword": "[replace-with-password]",
-                            "osType": "windows",
-                            "virtualNetwork": {
-                                "name": "hub-vnet"
-                            },
-                            "nics": [
-                                {
-                                    "isPublic": false,
-                                    "subnetName": "mgmt",
-                                    "privateIPAllocationMethod": "Static",
-                                    "startingIPAddress": "10.0.0.36"
-                                }
-                            ]
-                        },
-                        {
-                            "resourceGroupName": "hub-vnet-rg",
-                            "vmCount": 1,
-                            "namePrefix": "hubjbl",
-                            "computerNamePrefix": "hubjbl",
+                            "namePrefix": "hub-vm01",
+                            "computerNamePrefix": "hub-vm01",
+                            "size": "Standard_B1ls",
                             "adminUsername": "[replace-with-username]",
                             "adminPassword": "[replace-with-password]",
                             "osType": "linux",
@@ -142,19 +99,19 @@
                             "name": "onprem-vpn-gateway1",
                             "gatewayType": "Vpn",
                             "vpnType": "RouteBased",
-                            "sku": "VpnGw1",
+                            "sku": "Basic",
                             "isPublic": true,
                             "virtualNetwork": {
                                 "resourceGroupName": "onprem-vnet-rg",
                                 "name": "onprem-vnet"
                             }
-                        }, 
+                        },
                         {
                             "resourceGroupName": "hub-vnet-rg",
                             "name": "hub-vpn-gateway1",
                             "gatewayType": "Vpn",
                             "vpnType": "RouteBased",
-                            "sku": "VpnGw1",
+                            "sku": "Basic",
                             "isPublic": true,
                             "virtualNetwork": {
                                 "name": "hub-vnet"
@@ -271,29 +228,9 @@
                         {
                             "resourceGroupName": "spoke1-vnet-rg",
                             "vmCount": 1,
-                            "namePrefix": "s1jb",
-                            "computerNamePrefix": "s1jb",
-                            "adminUsername": "[replace-with-username]",
-                            "adminPassword": "[replace-with-password]",
-                            "osType": "windows",
-                            "virtualNetwork": {
-                                "resourceGroupName": "spoke1-vnet-rg",
-                                "name": "spoke1-vnet"
-                            },
-                            "nics": [
-                                {
-                                    "isPublic": false,
-                                    "subnetName": "mgmt",
-                                    "privateIPAllocationMethod": "Static",
-                                    "startingIPAddress": "10.1.0.36"
-                                }
-                            ]
-                        },
-                        {
-                            "resourceGroupName": "spoke1-vnet-rg",
-                            "vmCount": 1,
-                            "namePrefix": "s1jbl",
-                            "computerNamePrefix": "s1jbl",
+                            "namePrefix": "spoke1-vm01",
+                            "computerNamePrefix": "spoke1-vm01",
+                            "size": "Standard_B1ls",
                             "adminUsername": "[replace-with-username]",
                             "adminPassword": "[replace-with-password]",
                             "osType": "linux",
@@ -313,29 +250,9 @@
                         {
                             "resourceGroupName": "spoke2-vnet-rg",
                             "vmCount": 1,
-                            "namePrefix": "s2jb",
-                            "computerNamePrefix": "s2jb",
-                            "adminUsername": "[replace-with-username]",
-                            "adminPassword": "[replace-with-password]",
-                            "osType": "windows",
-                            "virtualNetwork": {
-                                "resourceGroupName": "spoke2-vnet-rg",
-                                "name": "spoke2-vnet"
-                            },
-                            "nics": [
-                                {
-                                    "isPublic": false,
-                                    "subnetName": "mgmt",
-                                    "privateIPAllocationMethod": "Static",
-                                    "startingIPAddress": "10.2.0.36"
-                                }
-                            ]
-                        },
-                        {
-                            "resourceGroupName": "spoke2-vnet-rg",
-                            "vmCount": 1,
-                            "namePrefix": "s2jbl",
-                            "computerNamePrefix": "s2jbl",
+                            "namePrefix": "spoke1-vm01",
+                            "computerNamePrefix": "spoke1-vm01",
+                            "size": "Standard_B1ls",
                             "adminUsername": "[replace-with-username]",
                             "adminPassword": "[replace-with-password]",
                             "osType": "linux",
