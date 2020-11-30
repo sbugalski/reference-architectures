@@ -45,6 +45,7 @@
                 },
                 {
                     "type": "VirtualMachine",
+                    "settings": [
                         {
                             "resourceGroupName": "onprem-jb-rg",
                             "vmCount": 1,
