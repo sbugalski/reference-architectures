@@ -49,7 +49,7 @@
                         {
                             "resourceGroupName": "onprem-jb-rg",
                             "vmCount": 1,
-                            "namePrefix": "onprem-vm01",
+                            "namePrefix": "onprem-",
                             "size": "Standard_B1ls",
                             "adminUsername": "[replace-with-username]",
                             "adminPassword": "[replace-with-password]",
@@ -72,8 +72,7 @@
                         {
                             "resourceGroupName": "hub-vnet-rg",
                             "vmCount": 1,
-                            "namePrefix": "hub-vm01",
-                            "computerNamePrefix": "hub-vm01",
+                            "namePrefix": "hub-",
                             "size": "Standard_B1ls",
                             "adminUsername": "[replace-with-username]",
                             "adminPassword": "[replace-with-password]",
@@ -229,8 +228,7 @@
                         {
                             "resourceGroupName": "spoke1-vnet-rg",
                             "vmCount": 1,
-                            "namePrefix": "spoke1-vm01",
-                            "computerNamePrefix": "spoke1-vm01",
+                            "namePrefix": "spoke1-",
                             "size": "Standard_B1ls",
                             "adminUsername": "[replace-with-username]",
                             "adminPassword": "[replace-with-password]",
@@ -242,17 +240,16 @@
                             "nics": [
                                 {
                                     "isPublic": false,
-                                    "subnetName": "mgmt",
+                                    "subnetName": "workload",
                                     "privateIPAllocationMethod": "Static",
-                                    "startingIPAddress": "10.1.0.37"
+                                    "startingIPAddress": "10.1.1.37"
                                 }
                             ]
                         },
                         {
                             "resourceGroupName": "spoke2-vnet-rg",
                             "vmCount": 1,
-                            "namePrefix": "spoke1-vm01",
-                            "computerNamePrefix": "spoke1-vm01",
+                            "namePrefix": "spoke2-",
                             "size": "Standard_B1ls",
                             "adminUsername": "[replace-with-username]",
                             "adminPassword": "[replace-with-password]",
@@ -264,9 +261,9 @@
                             "nics": [
                                 {
                                     "isPublic": false,
-                                    "subnetName": "mgmt",
+                                    "subnetName": "workload",
                                     "privateIPAllocationMethod": "Static",
-                                    "startingIPAddress": "10.2.0.37"
+                                    "startingIPAddress": "10.2.1.37"
                                 }
                             ]
                         }
